@@ -2,9 +2,17 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 
+/**
+ * Represents a Person's remark in the address book.
+ */
 public class Remark {
     public final String value;
 
+    /**
+     * Constructs a {@code Remark}.
+     *
+     * @param remark A remark of type string.
+     */
     public Remark(String remark) {
         requireNonNull(remark);
         this.value = remark;
