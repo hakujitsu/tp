@@ -70,7 +70,6 @@ public class SaleTagListMap {
         });
     }
 
-    // TODO: potentially remove
     /**
      * Gets the number of items in an sale list based on the key of {@code key}.
      * If the key of {@code key} does not exist, the number is 0.
@@ -80,9 +79,15 @@ public class SaleTagListMap {
      */
     public int getSaleCount(Tag tag) {
         requireNonNull(tag);
-        TagKey key = new TagKey(tag);
-        assert this.saleTagListMap.containsKey(key);
-        return this.saleTagListMap.get(key).size();
+
+        // TODO: improve code quality here
+        for( Map.Entry<TagKey,List<Sale>> entry : saleTagListMap.entrySet()) {
+            if (entry.getKey().getTag().equals(tag)) {
+                return entry.getValue().size();
+            }
+        }
+
+        return 0;
     }
 
     /**

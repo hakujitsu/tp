@@ -47,8 +47,6 @@ public class BreakdownCommand extends Command {
 
         DataSet<SaleTagCountData> result = model.getSaleTagCount();
 
-        result.getDataList().forEach(x -> System.out.println(x.getKeyAsStr() + " " + x.getCount()));
-
         if (result.isEmpty()) {
             throw new CommandException(Messages.MESSAGE_EMPTY_DATASET);
         }
