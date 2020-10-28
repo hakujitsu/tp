@@ -33,7 +33,7 @@ public class Sale implements Comparable<Sale> {
     private final UnitPrice unitPrice;
     private final BigDecimal totalCost;
 
-    // Sale tags
+    /** Sale tags */
     private final Set<Tag> tags;
 
     /**
@@ -173,7 +173,7 @@ public class Sale implements Comparable<Sale> {
      * lowest priority: has an earlier datetime of purchase, has a lower lexicographical order of buyer name,
      * has a lower lexicographical order of item name.
      *
-     * @param otherSale The other Sale to compare to
+     * @param otherSale The other Sale to compare to.
      * @return The comparator value, negative if less, positive if greater.
      */
     @Override

@@ -45,6 +45,9 @@ public class UniqueSaleList implements Iterable<Sale> {
 
     /**
      * Returns true if the list contains an equivalent sale as the given argument.
+     *
+     * @param toCheck The sale to be checked against {@code internalList}.
+     * @return Whether the list contains an equivalent sale as the given argument.
      */
     public boolean contains(Sale toCheck) {
         requireNonNull(toCheck);
@@ -54,6 +57,10 @@ public class UniqueSaleList implements Iterable<Sale> {
     /**
      * Adds a sale to the list.
      * The sale must not already exist in the list.
+     *
+     * @param toAdd The sale to add.
+     * @return The UniqueSaleList after adding {@code toAdd}.
+     * @throws DuplicateSaleException If the {@code toAdd} already exists.
      */
     public UniqueSaleList add(Sale toAdd) throws DuplicateSaleException {
         requireNonNull(toAdd);
@@ -72,6 +79,9 @@ public class UniqueSaleList implements Iterable<Sale> {
      * Replaces the sale {@code target} in the list with {@code editedSale}.
      * {@code sale} must exist in the list.
      * The sale identity of {@code editedSale} must not be the same as another existing sale in the list.
+     *
+     * @param target The sale to be replaced.
+     * @param editedSale The sale to replace {@code target}.
      */
     public void setSale(Sale target, Sale editedSale) {
         requireAllNonNull(target, editedSale);
@@ -96,6 +106,8 @@ public class UniqueSaleList implements Iterable<Sale> {
     /**
      * Removes the equivalent sale from the list.
      * The sale must exist in the list.
+     *
+     * @param toRemove The sale to be removed.
      */
     public void remove(Sale toRemove) {
         requireNonNull(toRemove);
@@ -146,6 +158,8 @@ public class UniqueSaleList implements Iterable<Sale> {
     /**
      * Replaces the contents of this list with {@code sales}.
      * {@code sales} must not contain duplicate sales.
+     *
+     * @param sales The list of sales to replace the contents of {@code internalList}.
      */
     public void setSales(List<Sale> sales) {
         requireAllNonNull(sales);
@@ -180,6 +194,9 @@ public class UniqueSaleList implements Iterable<Sale> {
 
     /**
      * Replaces the specified {@code target} with {@code editedTag} for all sales.
+     *
+     * @param target The tag to be replaced.
+     * @param editedTag The tag to replace {@code target} with.
      */
     public void setSaleTag(Tag target, Tag editedTag) {
         requireAllNonNull(target, editedTag);
@@ -209,6 +226,8 @@ public class UniqueSaleList implements Iterable<Sale> {
 
     /**
      * Removes the specified tag from all sales.
+     *
+     * @param toRemove The tag to be removed.
      */
     public void removeSaleTag(Tag toRemove) {
         requireNonNull(toRemove);
@@ -283,6 +302,9 @@ public class UniqueSaleList implements Iterable<Sale> {
 
     /**
      * Returns true if {@code sales} contains only unique sales.
+     *
+     * @param sales The list of sales to verify if it contains only unique sales.
+     * @return Whether {@code sales} contains only unique sales.
      */
     private boolean salesAreUnique(List<Sale> sales) {
         for (int i = 0; i < sales.size() - 1; i++) {
